@@ -1,5 +1,3 @@
-const webpackConfig = require('./webpack.config')
-
 module.exports = function (config) {
     config.set({
 
@@ -9,8 +7,6 @@ module.exports = function (config) {
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['mocha'],
-
-        webpack: webpackConfig,
 
         // list of files / patterns to load in the browser
         files: [
@@ -23,20 +19,14 @@ module.exports = function (config) {
         exclude: [],
 
 
-        // preprocess matching files before serving them to the browser
-        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {
-            'test/**/*.js': ['webpack'],
-            'test/**/*.ts': ['webpack']
-        },
-
-
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
         reporters: ['progress'],
 
-
+        preprocessors: {
+            '**/*.js': ['electron']
+        },
 
         // enable / disable colors in the output (reporters and logs)
         colors: true,
@@ -53,8 +43,11 @@ module.exports = function (config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['Chrome'],
+        browsers: ['Electron'],
 
+        client: {
+            useIframe: false
+        },
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits

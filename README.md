@@ -1,10 +1,11 @@
-Typescript Karma Webpack Mocha Demo
+JavaScript "karma-mocha" Electron Demo
 =====================================
 
-如何把Karma, webpack, mocha连接起来，处理typescript测试。
+使用karma时，测试代码将在浏览器上执行，所以不能运行node测试。
 
-注意：虽然mocha是运行在node上，但是karma本身是运行于浏览器中，所以在karma.conf.js中，
-一定要设置`browsers`。
+使用electron，应该可以允许直接发起对node_modules下模块的调用。
+
+FIXME: 这个demo没有成功，electron启动之后，没有窗口，也没有运行任何测试，需要找到原因。
 
 ```
 npm install
